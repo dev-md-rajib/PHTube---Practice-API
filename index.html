@@ -12,19 +12,76 @@
     <title>PhTube</title>
   </head>
 
-  <body>
-    <header class="w-[90%] mx-auto mt-6">
+  <body class="w-[90%] mx-auto">
+    <header class="mt-6 border-b-2">
       <!-- Nav code -->
-      <nav class="flex justify-between items-center pb-4 border-b-2">
+      <nav class="flex justify-between items-center pb-3">
         <div class="logo w-[130px]">
           <img class="w-fit" src="assets/Logo.png" alt="" />
         </div>
         <p class="p-2 bg-slate-300 font-semibold rounded-md">Sort By View</p>
         <button class="btn btn-error text-white">Blog</button>
       </nav>
+
+      <!-- Search code -->
+      <section class="pb-4">
+        <label
+          class="input input-bordered flex items-center gap-2 w-1/2 mx-auto">
+          <input type="text" class="grow" placeholder="Search" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="h-4 w-4 opacity-70">
+            <path
+              fill-rule="evenodd"
+              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              clip-rule="evenodd" />
+          </svg>
+        </label>
+      </section>
     </header>
 
-    <main></main>
+    <!-- category -->
+    <main class="mt-5">
+      <div
+        id="category-button-container"
+        class="flex justify-center gap-6"></div>
+
+      <section id="video-container" class="mt-6 grid grid-cols-4 gap-8">
+        <div class="card max-w-max flex flex-col items-center gap-3">
+          <div class="img-container h-[200px] relative">
+            <img
+              class="w-fit h-fit object-contain"
+              src="assets/Rectangle1.png"
+              alt="thumbnail of the video" />
+            <p
+              class="text-white absolute bg-black bottom-4 right-4 p-1 rounded-md">
+              3hrs 56 min ago
+            </p>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-[40px] h-[40px]">
+              <img class="w-fit h-fit" src="assets/Ellipse 1.png" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h2>
+              <div class="flex items-center gap-2">
+                <p class="text-gray-500">Awlad Hossain</p>
+                <div>
+                  <img class="w-fit" src="assets/Vector.png" alt="" />
+                </div>
+              </div>
+
+              <p class="text-gray-500">91K views</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer></footer>
 
