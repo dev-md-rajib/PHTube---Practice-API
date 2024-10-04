@@ -63,11 +63,15 @@ function createVideo(video) {
     "items-start",
     "gap-3",
     "auto-rows-fr"
+    // "transition-transform",
+    //   "duration-300",
+    //  "transform",
+    //  "hover:scale-110"
   );
 
   card.innerHTML = `
   
-  <div class="img-container w-[300px] h-[200px] border overflow-hidden  rounded-lg">
+  <div class="img-container w-[300px] h-[200px]  overflow-hidden  rounded-lg transition-transform duration-300 transform hover:scale-105">
             <img
               class="w-full h-full object-cover rounded-lg"
               src="${video.thumbnail}"
