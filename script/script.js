@@ -1,5 +1,51 @@
 var retrievedVideos = [];
 
+function searchVideos() {
+  const searchBar = document.getElementById("searchText");
+  const text = searchBar.value;
+  const link =
+    "https://openapi.programming-hero.com/api/phero-tube/videos?title=" +
+    text.trim();
+  console.log(link);
+
+  fetch(link)
+    .then((res) => res.json())
+    .then((data) => {
+      retrievedVideos = data.videos;
+      showVideos();
+    });
+}
+
+function convertToNumber(str) {
+  // Extract the numeric part and the suffix
+  const suffix = str.slice(-1).toUpperCase();
+  const value = parseFloat(str.slice(0, -1));
+
+  // Multiply based on the suffix
+  switch (suffix) {
+    case "K": // Thousands
+      return value * 1000;
+    case "M": // Millions
+      return value * 1000000;
+    case "B": // Billions
+      return value * 1000000000;
+    default:
+      // If no suffix, return the parsed value
+      return parseFloat(str);
+  }
+}
+
+// sorting
+function sortByViews() {
+  retrievedVideos.sort((a, b) => {
+    let viewA = convertToNumber(a.others.views);
+    let viewB = convertToNumber(b.others.views);
+
+    return viewB - viewA;
+  });
+  showVideos();
+}
+
 function createVideo(video) {
   const card = document.createElement("div");
   card.classList.add(
@@ -54,6 +100,15 @@ function createVideo(video) {
 function showVideos() {
   console.log(retrievedVideos);
   const container = document.getElementById("video-container");
+  const empty = document.getElementById("empty-section");
+  if (retrievedVideos.length == 0) {
+    empty.classList.remove("hidden");
+    container.classList.add("hidden");
+    return;
+  }
+  empty.classList.add("hidden");
+  container.classList.remove("hidden");
+
   container.innerHTML = "";
 
   for (video of retrievedVideos) {
@@ -82,7 +137,7 @@ function addEventListenerToCategory(button, obj) {
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
-        retrievedVideos = data;
+        retrievedVideos = data.category;
         showVideos();
       });
 
