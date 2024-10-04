@@ -95,6 +95,7 @@ function createVideo(video) {
                   <img class="w-fit ${
                     video.authors[0]["verified"] == true ? "" : "hidden"
                   }" src="assets/Vector.png" alt="" />
+                  
                 </div>
               </div>
 
@@ -178,7 +179,8 @@ function createCatButton(obj) {
     "btn-primary",
     "bg-gray-300",
     "border-none",
-    "text-gray-700"
+    "text-gray-700",
+    "hover:text-white"
   );
   button.innerText = obj.category;
   const btn = addEventListenerToCategory(button, obj);
