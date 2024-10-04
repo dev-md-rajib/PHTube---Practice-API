@@ -8,6 +8,13 @@ function searchVideos() {
     text.trim();
   console.log(link);
 
+  const container = document.getElementById("category-button-container");
+  const childs = container.childNodes;
+  childs.forEach((child) => {
+    child.classList.add("bg-gray-300");
+    child.classList.remove("bg-red-500");
+  });
+
   fetch(link)
     .then((res) => res.json())
     .then((data) => {
@@ -125,9 +132,14 @@ function loadInitialVideos() {
       retrievedVideos = data.videos;
       showVideos();
     });
+  const container = document.getElementById("category-button-container");
+  const childs = container.childNodes;
+  childs.forEach((child) => {
+    child.classList.add("bg-gray-300");
+    child.classList.remove("bg-red-500");
+  });
 }
 
-loadInitialVideos();
 function addEventListenerToCategory(button, obj) {
   button.addEventListener("click", () => {
     const api =
@@ -186,3 +198,4 @@ function loadCategory() {
 }
 
 loadCategory();
+loadInitialVideos();
